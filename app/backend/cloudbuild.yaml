@@ -7,9 +7,9 @@ steps:
   - name: 'gcr.io/k8s-skaffold/pack'
     args:
       - 'build'
-      - 'europe-west1-maven.pkg.dev/qwiklabs-gcp-04-0fe400a63823/devops-repo/devops-image:v0.1'
+      - 'eeurope-west1-docker.pkg.dev/qwiklabs-gcp-04-0fe400a63823/devops-repo/devops-image:v0.1'
       - '--builder=paketobuildpacks/builder:base'
       - '--path=.'
 
 images:
-  - 'europe-west1-maven.pkg.dev/qwiklabs-gcp-04-0fe400a63823/devops-repo/devops-image:v0.1'
+  - 'europe-west1-docker.pkg.dev/qwiklabs-gcp-04-0fe400a63823/devops-repo/devops-image:v0.1'
