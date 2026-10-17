@@ -10,6 +10,7 @@ steps:
       - 'europe-west1-docker.pkg.dev/qwiklabs-gcp-04-0fe400a63823/devops-repo/devops-image:v0.1'
       - '--builder=paketobuildpacks/builder:base'
       - '--path=.'
+      - '--env=BP_JVM_VERSION=21'
 
 images:
   - 'europe-west1-docker.pkg.dev/qwiklabs-gcp-04-0fe400a63823/devops-repo/devops-image:v0.1'
