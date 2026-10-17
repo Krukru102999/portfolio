@@ -7,10 +7,10 @@ steps:
   - name: 'gcr.io/k8s-skaffold/pack'
     args:
       - 'build'
-      - 'europe-west1-docker.pkg.dev/qwiklabs-gcp-04-0fe400a63823/devops-repo/devops-image:v0.1'
+      - 'us-east1-docker.pkg.dev/qwiklabs-gcp-01-b4c04ceaf6f8/devops-repo/devops-image:v0.1'
       - '--builder=paketobuildpacks/builder-jammy-base'
       - '--path=.'
       - '--env=BP_JVM_VERSION=21'
 
 images:
-  - 'europe-west1-docker.pkg.dev/qwiklabs-gcp-04-0fe400a63823/devops-repo/devops-image:v0.1'
+  - 'us-east1-docker.pkg.dev/qwiklabs-gcp-01-b4c04ceaf6f8/devops-repo/devops-image:v0.1'
