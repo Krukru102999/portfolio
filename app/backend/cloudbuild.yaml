@@ -1,15 +1,15 @@
 steps:
   # Step 1: Run Maven build inside a standard official Maven container to generate the target/*.jar
   - name: 'maven:3.9.6-eclipse-temurin-21'
-    args: ['clean', 'package', '-DskipTests']
+    args: ['mvn', 'clean', 'package', '-DskipTests']
 
   # Step 2: Use Google's standard Java buildpack to containerize the compiled jar
   - name: 'gcr.io/k8s-skaffold/pack'
     args:
       - 'build'
-      - 'asia-southeast1-docker.pkg.dev/qwiklabs-gcp-04-0fe400a63823/devops-repo/rest-service:latest'
+      - 'asia-southeast1-docker.pkg.dev/qwiklabs-gcp-04-0fe400a63823/devops-repo/devops-image:v0.1'
       - '--builder=paketobuildpacks/builder:base'
       - '--path=.'
 
 images:
-  - 'asia-southeast1-docker.pkg.dev/qwiklabs-gcp-04-0fe400a63823/devops-repo/rest-service:latest'
+  - 'asia-southeast1-docker.pkg.dev/qwiklabs-gcp-04-0fe400a63823/devops-repo/devops-image:v0.1'
