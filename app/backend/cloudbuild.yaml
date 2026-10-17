@@ -13,6 +13,17 @@ steps:
       - '--builder=paketobuildpacks/builder-jammy-base'
       - '--path=.'
       - '--env=BP_JVM_VERSION=21'
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    args:
+      - 'run'
+      - 'deploy'
+      - 'devops-service'
+      - '--image=us-east1-docker.pkg.dev/qwiklabs-gcp-01-b4c04ceaf6f8/devops-repo/devops-image:v0.1'
+      - '--region=us-east1'
+      - '--allow-unauthenticated'
+      - '--port=8080'
+      - '--memory=1Gi'
+    entrypoint: gcloud
 
 images:
   - 'us-east1-docker.pkg.dev/qwiklabs-gcp-01-b4c04ceaf6f8/devops-repo/devops-image:v0.1'
