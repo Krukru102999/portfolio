@@ -14,3 +14,5 @@ steps:
 
 images:
   - 'us-east1-docker.pkg.dev/qwiklabs-gcp-01-b4c04ceaf6f8/devops-repo/devops-image:v0.1'
+options:
+  logging: CLOUD_LOGGING_ONLY
