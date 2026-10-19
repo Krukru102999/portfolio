@@ -9,7 +9,7 @@ steps:
     dir: 'app/backend'
     args:
       - 'build'
-      - 'us-east1-docker.pkg.dev/qwiklabs-gcp-04-4ac44ce0be20/devops-repo/devops-image:v0.1'
+      - '${_LOCATION}-docker.pkg.dev/${_PROJECT_ID}/devops-repo/devops-image:v0.1'
       - '--builder=paketobuildpacks/builder-jammy-base'
       - '--path=.'
       - '--env=BP_JVM_VERSION=21'
@@ -19,14 +19,17 @@ steps:
       - 'run'
       - 'deploy'
       - 'devops-service'
-      - '--image=us-east1-docker.pkg.dev/qwiklabs-gcp-04-4ac44ce0be20/devops-repo/devops-image:v0.1'
-      - '--region=us-east1'
+      - '--image=${_LOCATION}-docker.pkg.dev/${_PROJECT_ID}/devops-repo/devops-image:v0.1'
+      - '--region=${_LOCATION}'
       - '--allow-unauthenticated'
       - '--port=8080'
       - '--memory=1Gi'
     entrypoint: gcloud
 
 images:
-  - 'us-east1-docker.pkg.dev/qwiklabs-gcp-04-4ac44ce0be20/devops-repo/devops-image:v0.1'
+  - '${_LOCATION}-docker.pkg.dev/${_PROJECT_ID}/devops-repo/devops-image:v0.1'
 options:
   logging: CLOUD_LOGGING_ONLY
+substitutions:
+  _LOCATION: 'us-east1'
+  _PROJECT_ID: 'qwiklabs-gcp-04-4ac44ce0be20'
