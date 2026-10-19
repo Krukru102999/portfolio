@@ -27,8 +27,6 @@ steps:
       - '--memory=1Gi'
     entrypoint: gcloud
 
-images:
-  - '${_LOCATION}-docker.pkg.dev/${_PROJECT_ID}/devops-repo/devops-image:v0.1'
 options:
   logging: CLOUD_LOGGING_ONLY
 substitutions:
