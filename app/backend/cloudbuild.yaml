@@ -12,6 +12,7 @@ steps:
       - '${_LOCATION}-docker.pkg.dev/${_PROJECT_ID}/devops-repo/devops-image:v0.1'
       - '--builder=paketobuildpacks/builder-jammy-base'
       - '--path=.'
+      - '--publish'
       - '--env=BP_JVM_VERSION=21'
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     dir: 'app/backend'
